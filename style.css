@@ -1,0 +1,312 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
+
+:root {
+    /* Primary */
+    --gradient: linear-gradient(90deg, hsl(6, 100%, 80%) 0%, hsl(335, 100%, 65%) 100%);
+    /* Neutral */
+    --pale-blue: hsl(243, 100%, 93%);
+    --grayish-blue: hsl(229, 7%, 55%);
+    --dark-blue: hsl(228, 56%, 26%);
+    --very-dark-blue: hsl(229, 57%, 11%);
+}
+
+*,
+::before,
+::after {
+    margin: 0;
+    padding: 0;
+
+    box-sizing: border-box;
+}
+
+body {
+    width: 100vw;
+    min-height: 100vh;
+
+    font-family: 'Raleway', sans-serif;
+
+    background-color: var(--very-dark-blue);
+    background-image: url(./images/bg-dekstop.png);
+    background-repeat: no-repeat;
+    background-position: bottom right;
+    background-size: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main {
+    width: 50%;
+
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    grid-template-rows: auto;
+    grid-gap: 20px;
+    align-items: end;
+}
+
+/* Left section */
+main>div {
+    width: 260px;
+    height:150px;
+
+    grid-column: 1;
+    grid-row: 1;
+
+    background-color: var(--dark-blue);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    padding: 30px;
+
+    border-radius: 5px;
+    border-top-right-radius: 75px;
+}
+
+main>div>img {
+    width: 45%;
+
+    margin-bottom: 15px;
+}
+
+main>div>div {
+    width: 50%;
+    max-width: 120px;
+    
+
+    margin-top: 15px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.icon-container {
+    width: 30px;
+    height: 30px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: var(--very-dark-blue);
+    border-radius: 5px;
+}
+
+.icon-container img {
+    width: 15px;
+    height: auto;
+
+    cursor: pointer;
+}
+
+
+/* Right section */
+aside {
+    width: 100%;
+    height: 120px;
+
+    grid-column: 2;
+    grid-row: 1;
+
+    background-color: var(--dark-blue);
+
+    border-radius: 10px;
+
+    padding: 20px 30px;
+
+    position: relative;
+
+    display: grid;
+    grid-gap: 5px;
+    grid-template-rows: 25% 10% 25% 25%;
+    align-items: center;
+}
+
+aside>p {
+    color: var(--grayish-blue);
+
+    grid-row: 1 / 2;
+
+    font-size: 15px;
+}
+
+aside>p span {
+    color: var(--pale-blue);
+    font-weight: 700;
+}
+
+/* storage bar */
+#storage-left {
+    width: 100%;
+    height: 20px;
+
+    background-color: var(--very-dark-blue);
+
+    border: 3px solid var(--very-dark-blue);
+    border-radius: 10px;
+
+    grid-row: 3 / 4;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+#storage-left>div {
+    width: 81.5%;
+    height: 100%;
+
+    background-image: var(--gradient);
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    padding: 0 2px;
+    
+    border-radius: 10px;
+}
+
+#storage-left>div div {
+    height: 10px;
+    width: 10px;
+
+    background-color: var(--pale-blue);
+
+    border-radius: 100%;
+}
+
+/* bottom infos */
+#storage-infos {
+    grid-row: 4 / 5;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    color: var(--pale-blue);
+    font-weight: 700;
+}
+
+/* bubble */
+#bubble {
+    width: 160px;
+    height: 60px;
+
+    position: absolute;
+    top: -30%;
+    right: 30px;
+
+    background-color: var(--pale-blue);
+
+    border-radius: 10px;
+    border-bottom-right-radius: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+#bubble div {
+    position: relative;
+}
+
+#bubble::after {
+    content: "";
+
+    border-top: 20px solid var(--pale-blue);
+    border-left: 20px solid transparent;
+
+    position: absolute;
+    right: 0;
+    bottom: -20px;
+}
+
+#bubble span {
+    color: var(--very-dark-blue);
+    font-weight: 700;
+    font-size: 25px;
+
+    display: flex;
+    align-items: center;
+}
+
+#bubble span span {
+    color: var(--grayish-blue);
+    font-size: 15px;
+
+    margin-left: 10px;
+}
+
+/* Raises the bubble when it passes over the text */
+@media screen and (max-width: 1500px) {
+    #bubble {
+        top: -45%;
+    }
+}
+
+/* Mobile design */
+@media screen and (max-width: 1200px) {
+    main {
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    body {
+        background-image: url(./images/bg-mobile.png);
+        background-position: bottom center;
+    }
+
+    main {
+        width: 80%;
+
+        grid-template-columns: auto;
+        grid-template-rows: repeat(2, 1fr);
+    }
+
+    main>div {
+        grid-column: 1 / 2;
+        grid-row: 1 / 2;
+
+        width: 100%;
+    }
+
+    main>div>img {
+        width: 150px;
+    }
+
+    main>div>div {
+        height: 2300px;
+    }
+
+    aside {
+        grid-column: 1 / 2;
+        grid-row: 2 / 3;
+
+        width: 100%;
+    }
+
+    #bubble {
+        border-radius: 10px;
+
+        right: center;
+
+        position: absolute;
+        top: 85%;
+        right: 35%;    
+    }
+
+    #bubble::after {
+        border: none;
+
+
+    }    
+}
+    
